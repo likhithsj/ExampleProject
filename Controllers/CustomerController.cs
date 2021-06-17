@@ -52,13 +52,13 @@ namespace Example.Controllers
         }
 
         //POST: api/customer
-        [Authorize (Policy = Policies.ADMIN_ROLE)]
+        [Authorize(Policy = Policies.ADMIN_ROLE)]
         [HttpPost]
         public IActionResult AddCustomer([FromBody] Customer customer)
         {
             if (customer == null)
             {
-                return base.BadRequest();
+                return BadRequest();
             }
             _ibizManager.Add(customer);
             return CreatedAtRoute("GetCustomerbyID", new { id = customer.Id }, customer);
@@ -82,8 +82,8 @@ namespace Example.Controllers
         }
 
         //DELETE: api/customers/1234
-        [Authorize(Policy = Policies.ADMIN_ROLE)]
-        [HttpDelete]
+        [Authorize(Policy = Policies.ADMIN_ROLE)]                   
+        [HttpDelete("{id}")]
         public IActionResult DeleteCustomerByID(string id)
         {
             if(string.IsNullOrWhiteSpace(id))

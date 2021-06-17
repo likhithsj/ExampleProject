@@ -20,16 +20,16 @@ namespace Example.Controllers
     [Route("[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly IConfiguration _config;
+        private readonly IConfiguration Configuration;
         private readonly IList<Credential> _appUsers
             = new List<Credential>
             {
                 new Credential { FullName = "Admin User", UserName = "admin", Password = "1234", UserRole = "Admin"},
                 new Credential { FullName = "Test User", UserName = "user", Password = "1234", UserRole = "User"}
             };
-        public LoginController(IConfiguration config)
+        public LoginController(IConfiguration configuration)
         {
-            _config = config;
+            Configuration = configuration;
         }
 
         [HttpPost]
@@ -42,13 +42,13 @@ namespace Example.Controllers
 
             if (user != null)
             {
-                var tokenString = GenerateJWTToken ((Credential)user);
+                var tokenString = GenerateJWTToken(user);
 
                 response = Ok(
                     new
                     {
                         token = tokenString,
-                        UserDetails = user,
+                        UserDetails = user
                     }
                     );
             }
@@ -56,7 +56,7 @@ namespace Example.Controllers
 
         }
 
-        private object AuthenticateUser(Credential loginCredentials)
+        Credential AuthenticateUser(Credential loginCredentials)
         {
             Credential user = _appUsers.SingleOrDefault(x =>
                                 x.UserName == loginCredentials.UserName
@@ -66,7 +66,7 @@ namespace Example.Controllers
 
         private string GenerateJWTToken(Credential credential)
         {
-            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config ["Jwt: SecretKey"]));
+            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:SecretKey"]));
             var signingCredentials = new SigningCredentials(securitykey, SecurityAlgorithms.HmacSha256);
 
             // Set the claims which will also include "roles".
@@ -83,10 +83,10 @@ namespace Example.Controllers
             };
 
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt: Issuer"],
-                audience: _config["Jwt: Audience"],
+                issuer: Configuration["Jwt:ValidIssuer"],
+                audience: Configuration["Jwt:ValidAudience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(38),
+                expires: DateTime.Now.AddMinutes(30),
                 signingCredentials: signingCredentials
                 );
 

@@ -1,13 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "N9gxoekoU5nSermaHbjE0s9Mg5OXeSvWNYKzikC6TPpqChpZfUSsgRVJ05LxzB5juE+1XW90AfBDcE3/GcT6lA==",
+  "dgSpecHash": "HRnn3NZH9tT0tVj9GwHBWC58wTbmot8C708QMheF74jiVm35fpYv/xzZD7pEr+Aex68g7VPeHLuaenqsQlTf6g==",
   "success": true,
   "projectFilePath": "C:\\Users\\likhi\\source\\repos\\Example\\Example\\Example.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\likhi\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.7\\microsoft.aspnetcore.authentication.jwtbearer.5.0.7.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.11.1\\microsoft.identitymodel.jsonwebtokens.6.11.1.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.identitymodel.logging\\6.11.1\\microsoft.identitymodel.logging.6.11.1.nupkg.sha512",
+    "C:\\Users\\likhi\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "C:\\Users\\likhi\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.11.1\\microsoft.identitymodel.tokens.6.11.1.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\likhi\\.nuget\\packages\\swashbuckle.aspnetcore\\5.6.3\\swashbuckle.aspnetcore.5.6.3.nupkg.sha512",
